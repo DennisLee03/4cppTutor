@@ -1,1 +1,1 @@
-# Junior High School Stddent C++ Tutor Files
+# Junior High School Student C++ Tutor Files
