@@ -27,6 +27,6 @@ diff -u "$EXPECTED_OUTPUT_FILE" "$ACTUAL_OUTPUT_FILE" > /dev/null
 if [ $? -eq 0 ]; then
     echo "✅ Question $1 通過測資！"
 else
-    echo "❌ 輸出不一致，差異如下："
+    echo "❌ Question $1 未通過測資！差異如下："
     diff -u "$EXPECTED_OUTPUT_FILE" "$ACTUAL_OUTPUT_FILE"
 fi
