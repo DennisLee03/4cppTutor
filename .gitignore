@@ -3,3 +3,5 @@ lab.*
 bin/
 template/
 output/
+gen.sh
+ttt-game/
