@@ -10,7 +10,7 @@
     $ g++ -o q{number} q{number}.cpp
     $ ./q{number}
     ```
-- Use `cin` for input and `cout` for output.
+- Use `cin` for input and `cout` for output. Remember `#include<iostream>` and `using namespace std;`
 - **No prompt messages** are needed for input.
 - Output must **strictly match** the required format to pass validation.
 
@@ -26,6 +26,7 @@
   - Then use `string` to store the name.
 - **Example**:
     ```bash
+    $ g++ -o q1 q1.cpp
     $ ./q1
     Dennis
     Hello Dennis!
@@ -43,6 +44,7 @@
     - K = ℃ + 273.15
 - **Example**:
     ```bash
+    $ g++ -o q2 q2.cpp
     $ ./q2
     25
     (77, 298.15)
@@ -58,14 +60,15 @@
 - **Output**: `Even` or `Odd`
 - **Examples**:
     ```bash
+    $ g++ -o q3 q3.cpp
     $ ./q3
     42
-    Even
+    42 is EVEN!
     ```
     ```bash
     $ ./q3
     13
-    Odd
+    13 is ODD!
     ```
 - **Hint**: Use the modulo operator `%` to check divisibility.
 
@@ -77,11 +80,13 @@
 - **Output**: The sum of numbers from 1 to `n`.
 - **Example**:
     ```bash
+    $ g++ -o q4 q4.cpp
     $ ./q4
     5
     15
     ```
     ```bash
+    $ g++ -o q4 q4.cpp
     $ ./q4
     100
     5050
