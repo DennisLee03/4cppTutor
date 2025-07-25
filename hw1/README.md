@@ -60,8 +60,8 @@ $ ./validate.sh half   # Only run q1 and q2
 
 ### 🔹 Question 2 - Temperature Transformations
 - **Input**: A `float` representing temperature in Celsius (°C).
-- **Output**:
-    - (<value in ℉>, <value in K>)
+- **Output**: A single line in the format: (F_value, K_value)
+    - F_value and K_value indicate ℉ and K respectively. 
 - **Conversion Formulas**:
     - ℉ = 1.8 × ℃ + 32
     - K = ℃ + 273.15
