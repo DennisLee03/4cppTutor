@@ -13,6 +13,29 @@
 - Use `cin` for input and `cout` for output. Remember `#include<iostream>` and `using namespace std;`
 - **No prompt messages** are needed for input.
 - Output must **strictly match** the required format to pass validation.
+- Note: If you see "^M" or "bad interpreter", run: `dos2unix *.sh`
+
+---
+
+## 🧪 Script Usage
+
+### ▶️ `test.sh`
+This script compiles and tests a single question:
+```bash
+$ ./test.sh 1
+```
+It will:
+- Compile `q1.cpp` into `bin/q1`
+- Feed the input from `input/q1.txt`
+- Compare the output with `ans/q1.txt`
+- Show ✅ if the result matches, ❌ otherwise
+
+### ✅ `validate.sh`
+This script runs tests for all questions (or just Part 1 if you pass `half`):
+```bash
+$ ./validate.sh        # Run q1 ~ q4
+$ ./validate.sh half   # Only run q1 and q2
+```
 
 ---
 
