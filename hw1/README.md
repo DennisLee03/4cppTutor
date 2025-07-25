@@ -6,7 +6,7 @@
     * you should use `string` to store the name you type, and you need to do `#include<string>` beforehand.
 * **output**: Hello <someone's name>!
 * **examples**:
-    ``bash
+    ```bash
     $ ./q1
     Dennis
     Hello Dennis!
