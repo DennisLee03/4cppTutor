@@ -1,6 +1,9 @@
 # 📝 Homework 1 Specification
 
 ## ✅ General Instructions
+- This homework is split into **two parts** since not all content will be covered in today's lecture:
+  - **Part 1** (due sooner): Questions 1 and 2
+  - **Part 2**: Questions 3 and 4
 - Use **WSL (Windows Subsystem for Linux)** to compile and run your programs:
     ```bash
     $ g++ -o q{number} q{number}.cpp
@@ -12,12 +15,14 @@
 
 ---
 
-## 🔹 Question 1 - Hello World!
+## 📦 Part 1: Basic Input & Math
+
+### 🔹 Question 1 - Hello World!
 - **Input**: A single `string` (e.g., `"Dennis"`, `"Nathan"`).
 - **Output**: `Hello <name>!`
 - **Notes**:
-  - Include `#include <string>`.
-  - Use `std::string` to store the name.
+  - Do `#include <string>` and `using namespace std;`.
+  - Then use `string` to store the name.
 - **Example**:
     ```bash
     $ ./q1
@@ -28,7 +33,7 @@
 
 ---
 
-## 🔹 Question 2 - Temperature Transformations
+### 🔹 Question 2 - Temperature Transformations
 - **Input**: A `float` representing temperature in Celsius (°C).
 - **Output**:
     - First line: `Fahrenheit: <value>`
@@ -46,7 +51,9 @@
 
 ---
 
-## 🔹 Question 3 - Even or Odd Number
+## 📦 Part 2: Conditionals & While-Loops
+
+### 🔹 Question 3 - Even or Odd Number
 - **Definition**: An **even number** is divisible by 2; otherwise, it’s **odd**.
 - **Input**: An integer.
 - **Output**: `Even` or `Odd`
@@ -65,7 +72,7 @@
 
 ---
 
-## 🔹 Question 4 - Accumulate from 1 to N
+### 🔹 Question 4 - Accumulate from 1 to N
 - **Task**: Given an integer `n`, compute the sum of integers from 1 to `n`.
 - **Input**: A single positive integer `n`.
 - **Output**: The sum of numbers from 1 to `n`.
@@ -80,3 +87,4 @@
     100
     5050
     ```
+- **Hint**: You can use a loop or the formula `n * (n + 1) / 2`.

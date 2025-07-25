@@ -3,30 +3,40 @@ mkdir -p bin output
 
 g++ -o bin/q$1 q$1.cpp
 if [ $? -ne 0 ]; then
-    echo "❌ 編譯失敗"
+    echo "❌ Compilation failed"
     exit 1
 fi
 
-# test it
 INPUT_FILE="input/q$1.txt"
-EXPECTED_OUTPUT_FILE="ans/q$1.txt"
-ACTUAL_OUTPUT_FILE="output/q$1.txt"
-./bin/q$1 < "$INPUT_FILE" > "$ACTUAL_OUTPUT_FILE"
+EXPECTED_FILE="ans/q$1.txt"
+ACTUAL_FILE="output/q$1.txt"
+> "$ACTUAL_FILE"  # 清空舊輸出
 
-# ====== normalize 函式：清理行尾、空白等隱藏差異 ======
+# Read and process line-by-line
+paste "$INPUT_FILE" "$EXPECTED_FILE" | while IFS=$'\t' read -r input_line expected_output; do
+    # Run the program with the single input line
+    actual_output=$(echo "$input_line" | ./bin/q$1)
+
+    # Normalize: remove trailing whitespace and ensure single newline
+    actual_output=$(echo "$actual_output" | sed 's/[[:space:]]*$//')
+
+    echo "$actual_output" >> "$ACTUAL_FILE"
+done
+
+# Normalize both files for safe diff
 normalize_file() {
-  sed -i 's/\r$//' "$1"            # 移除 Windows \r
-  sed -i 's/[ \t]*$//' "$1"        # 移除行尾多餘空白
-  sed -i -e '$a\' "$1"             # 確保結尾有換行符
+  sed -i 's/\r$//' "$1"
+  sed -i 's/[ \t]*$//' "$1"
+  sed -i -e '$a\' "$1"
 }
-normalize_file "$EXPECTED_OUTPUT_FILE"
-normalize_file "$ACTUAL_OUTPUT_FILE"
+normalize_file "$EXPECTED_FILE"
+normalize_file "$ACTUAL_FILE"
 
-# compare
-diff -u "$EXPECTED_OUTPUT_FILE" "$ACTUAL_OUTPUT_FILE" > /dev/null
+# Compare
+diff -u "$EXPECTED_FILE" "$ACTUAL_FILE" > /dev/null
 if [ $? -eq 0 ]; then
-    echo "✅ Question $1 通過測資！"
+    echo "✅ Question $1 passed all test cases!"
 else
-    echo "❌ Question $1 未通過測資！差異如下："
-    diff -u "$EXPECTED_OUTPUT_FILE" "$ACTUAL_OUTPUT_FILE"
+    echo "❌ Question $1 failed the test cases. Differences shown below:"
+    diff -u "$EXPECTED_FILE" "$ACTUAL_FILE"
 fi

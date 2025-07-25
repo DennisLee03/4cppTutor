@@ -1,8 +1,19 @@
 #!/usr/bin/bash
+#!/usr/bin/bash
+
 ALL_PASS=1
 SCORE=0
 
-for i in {1..4}; do
+# 判斷是否有參數
+if [ "$1" = "half" ]; then
+    START=1
+    END=2
+else
+    START=1
+    END=4
+fi
+
+for ((i=START; i<=END; i++)); do
     ./test.sh $i
     if [ $? -ne 0 ]; then
         ALL_PASS=0
@@ -13,7 +24,7 @@ for i in {1..4}; do
 done
 
 if [ $ALL_PASS -eq 1 ]; then
-    echo "🎉 所有題目通過, 得分: ${SCORE}"
+    echo "🎉 All tests passed! Total score: ${SCORE}"
 else
-    echo "🤏 未完全通過, 得分: ${SCORE}"
+    echo "🤏 Some tests failed. Total score: ${SCORE}"
 fi
