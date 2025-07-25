@@ -1,3 +1,5 @@
 lab.*
 .vscode/
 bin/
+template/
+output/
