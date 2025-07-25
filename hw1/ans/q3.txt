@@ -1,1 +1,6 @@
 87 is ODD!
+99 is ODD!
+11 is ODD!
+0 is EVEN!
+4 is EVEN!
+100 is EVEN!
